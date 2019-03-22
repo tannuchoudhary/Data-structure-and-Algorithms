@@ -15,9 +15,10 @@ typedef struct
 
 /*Function definition*/
 
-void push (stack *sp, int value)  /* For pushing an element into stack, first argument i.e pointer is to recieve adrress to point the variable for that particular datatype. */
+void push (stack *sp, int value)  /* For pushing an element into stack, first argument i.e pointer is to receive address to point the variable for that particular datatype. */
 {
-    if(sp->top == SIZE-1)         /* If the stack will be full, it will not able to take more values */
+    if(sp->top == SIZE-1)         /* If the stack will be full, it will not able to take more values*/  
+                                     
 
       {
           printf("STACK OVERFLOW\n");
@@ -33,9 +34,9 @@ int pop(stack *sp)                       /* For popping an element out of stack*
       if(sp->top == -1)                  /* If the stack will be full, it will not able to take more values*/
 
       {
-          printf("STACK UNDERFLOW\n");   /* Either if there is not any value in the stack, still it have to return an integer*/
-                                      
-          return -9999;                  /* As the return type of the function pop is int, so we will return -9999.*/
+          printf("STACK UNDERFLOW\n");   /* Either if there is not any value in the stack, still it have to return an integer
+                                            As the return type of the function pop is int, so we will return -9999.*/
+          return -9999;                 
       }
                                        
       int value;                         
@@ -52,7 +53,7 @@ void init(stack *sp)                    /* For initializing the top variable */
 
 
 /* Function prototype or function declaration */
-/* we have passed an asterisk symbol (dereferencing operator) in argument to recieve the address i.e pointer variable */
+/* we have passed an asterisk symbol (dereferencing operator) in argument to receive the address i.e pointer variable */
 
 void push(stack *, int);
 int pop(stack *);
