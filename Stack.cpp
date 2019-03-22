@@ -1,4 +1,4 @@
-// Push and pop operation in C++ without sing poinetrs.
+// Push and pop operation in C++ without using poinetrs.
 
 #include<iostream>
 #include<stdlib.h>
@@ -17,7 +17,7 @@ private:
 
 public:
 
-   stack()   // Making a constructor for initializing the top variable. 
+   stack()   // Creating a constructor for initializing the top variable. 
 
    {
        top = -1;
@@ -70,7 +70,7 @@ int main()
     stack s1;                                                  // Creating an object s1 of type stack
     int choice, value;
 
-    cout<<"1. push"<<endl<<"2. pop"<<endl<<"3. exit"<<endl;   // Display message for user to select option
+    cout<<"1. push"<<endl<<"2. pop"<<endl<<"3. exit"<<endl;   // Displaying message for user to select option
 
     while(1)
     {
