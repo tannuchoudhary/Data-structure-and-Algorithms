@@ -31,7 +31,7 @@ void push (stack *sp, int value)  /* For pushing an element into stack, first ar
 
 int pop(stack *sp)                       /* For popping an element out of stack*/
    {
-      if(sp->top == -1)                  /* If the stack will be full, it will not able to take more values*/
+      if(sp->top == -1)                  /* If the stack will be empty, it will not able to delete values*/
 
       {
           printf("STACK UNDERFLOW\n");   /* Either if there is not any value in the stack, still it have to return an integer
