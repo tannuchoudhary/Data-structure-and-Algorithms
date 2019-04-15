@@ -7,9 +7,9 @@ typedef struct
 
 {
 
-     int * item;      /*creating a pointer to contain an address of different object*/
+     int * item;      /*creating a pointer to contain a base address of different object*/
      int top;         /* A "top" variable for containing the values of top element */
-     int size;        /*Different object will be of different size*/
+     int size;        /*As different stack will be of different size, so to contain the size we have created a variable named size*/
 
 }stack;
 
@@ -45,7 +45,7 @@ int pop(stack *sp)                       /* For popping an element out of stack*
 
    }
 
-void init(stack *sp, int size)                    /* For initializing the top variable */
+void init(stack *sp, int size)                    /* For initializing the top variable and passing the size of the stack */
   {
       sp->top = -1;
       sp->item = (int *)malloc(sizeof(int) * size);  /* Allocating the recquired memory using malloc function*/
@@ -54,9 +54,9 @@ void init(stack *sp, int size)                    /* For initializing the top va
           printf("Execution failed\n");
           exit(1);
       }
-      sp->size = size;                             /* Assigning the size into the size variable*/  
+      sp->size = size;                             /* Assigning the size that would be recieved as argumnet into the size variable*/  
   }
-void deallocate(stack *sp)                        /* A function for deallocating memory i.e for freeing up space which is necessary*/
+void deallocate(stack *sp)                        /* A function for deallocating memory i.e for freeing up space*
 {
     if(sp->item != NULL)
     {
@@ -75,9 +75,9 @@ void deallocate(stack *);
 
 int main()
 {
-   stack s1;    /* Creating variable s1 and s2 of data type stack */
+   stack s1;    /* Creating variable s1 of data type stack */
 
-   init(&s1, 3);       /* We will do initialization first to avoid garbage values */
+   init(&s1, 3);       /* We will do initialization first to avoid garbage values and will pass the size of the stack into init function*/
    
 
 int choice, value;
