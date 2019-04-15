@@ -56,11 +56,13 @@ void init(stack *sp, int size)                    /* For initializing the top va
       }
       sp->size = size;                             /* Assigning the size that would be recieved as argumnet into the size variable*/  
   }
-void deallocate(stack *sp)                        /* A function for deallocating memory i.e for freeing up space*
+void deallocate(stack *sp)                        /* A function for deallocating memory i.e for freeing up space*/
 {
     if(sp->item != NULL)
     {
         free(sp->item);
+         sp->top = -1;
+         sp->size = 0;
     }
 }
 
