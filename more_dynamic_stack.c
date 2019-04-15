@@ -36,7 +36,7 @@ void push (stack *sp, int value)  /* For pushing an element into stack, first ar
               temp[i] = sp->item[i];
          }
          free (sp->item);      /*Deallocating the existing item array*/
-         sp->item = temp;     /* and assigning the temp to the item again*/
+         sp->item = temp;     /* and assigning the base address of temp to the item*/
 
          /*Now the item pointer will point to the newly allocated location that contains the existing element as well*/
          sp->size *= 2;       /*Now double the size of the array*/
