@@ -9,7 +9,7 @@ typedef struct
 {
 
      int item[SIZE];
-     int top;         /* A "top" variable for containing the values of top element */
+     int top;         /* A "top" variable for containing the value of top elements */
 
 }stack;
 
@@ -84,16 +84,16 @@ while(1)
                              push(&s1, value);
                              break;
 
-                    case 2: value = pop(&s1);
+                    case 2: value = pop(&s1);  /*assigning the returned value by pop into variable value*/
 
-                            if(value !=-9999)
+                            if(value !=-9999)  /*If the value will be -9999, this does means that stack is empty*/
                                {
                                    printf("Popped data will be %d",value);
                                }
                             break;
 
 
-                    case 3: exit(0);                         /* To exit the console */
+                     case 3: exit(0);                         /* To exit the console */
 
                      default : printf("Invalid choice\n");   /* For invalid choices */
 
