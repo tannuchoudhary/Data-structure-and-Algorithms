@@ -1,0 +1,1 @@
+Hello everyone, i am going to reverse this by writting a code using stack, so i have taken this text to perform the action.
