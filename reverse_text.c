@@ -1,6 +1,18 @@
+/*This is a code where i am going to reverse the characters of a text file using stack and will save them in the other text file*/
+
+/*The basic idea is that we will save all the characters of a file into the stack using push operation and will pop out from the stack 
+and we will print them in another file, this needs the basic knowledge of file handling and stack operations*/
+
+/*I have created one file named text_file.txt and have written some content in it and created an empty fle called rev_text_file.txt in 
+which the reversed content will be saved*/
+
+/*note: Your text file should be saved in the same folder in which you are going to save your c code*/
+
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
+
 
 typedef struct
 {
@@ -8,6 +20,7 @@ typedef struct
    int top;
    int size;
 }stack;
+
 
 
 /*Function prototype*/
@@ -18,15 +31,17 @@ void init(stack *, int);
 void deallocate(stack *);
 int isUnderflow(stack *);   /*Just made shortcuts for underflow and overflow condition*/
 int isOverflow(stack *);
-//int reverse(char, char);
+
 
 
 /*Function definition*/
+
 
 int isOverflow(stack *sp)
 {
     return sp->top == sp->size-1;
 }
+
 
 int isUnderflow(stack *sp)
 {
@@ -34,7 +49,7 @@ int isUnderflow(stack *sp)
 }
 
 
-void push(stack *sp, char value)
+void push(stack *sp, char value)   /*For pushing an element into a stack*/
 {
     if(isOverflow(sp))
     {
@@ -61,7 +76,9 @@ void push(stack *sp, char value)
     sp->item[sp->top] = value;
 }
 
-char pop(stack *sp)
+
+
+char pop(stack *sp)     /*For popping an element out of stack*/
 {
     if(isUnderflow(sp))
     {
@@ -74,7 +91,9 @@ char pop(stack *sp)
     return value;
 }
 
-void init(stack *sp, int size)
+
+
+void init(stack *sp, int size)   /*For initialising the stack and passing the size of the stack*/
 {
     sp->top = -1;
     sp->item = (char*)malloc(sizeof(char)*size);
@@ -86,7 +105,9 @@ void init(stack *sp, int size)
     sp->size = size;
 }
 
-void deallocate(stack *sp)
+
+
+void deallocate(stack *sp)   /*For deallocation of memory after the whole process*/
 {
     if (sp->item != NULL)
     {
@@ -96,47 +117,64 @@ void deallocate(stack *sp)
     sp->size =0;
 }
 
-int reverse(char source_file[], char dest_file[])
-{
-    FILE *fps, *fpd;
-    const int SIZE = 50;
-    fps = fopen(source_file,"r");
 
-    if(fps == NULL)
+
+int reverse(char source_file[], char dest_file[])  /* This is a function for reversing the characters present in a text file*/
+   
+{
+   
+    FILE *fps, *fpd;            /*we will declare two pointer variables of file type, one for the address of source file and the 
+                                   other for destination file*/
+   
+    const int SIZE = 50;         /*We will declare the size of the stack and later it would be increased in case of stack overflow as
+                                  we have already made the stack dynamic*/
+   
+    fps = fopen(source_file,"r"); /*Opening the source file and storing its adress in fps, we will open it in read mode as we have
+                                   to read characters from source file only*/  
+
+    if(fps == NULL)               /*In case if there will be any problem in opening the file*/
+       
     {
         printf("Source file %d cannot be opened.\n", source_file);
         return 0;
     }
 
-    fpd = fopen(dest_file, "w");
+    fpd = fopen(dest_file, "w"); /*Opening the destination file in write mode as we want to write reversed characters in it and if you 
+                                  have not created any file for destination then it will be automatically created as it is in write mode*/
 
-    if(fpd == NULL)
+    if(fpd == NULL)              /*In case if there will be any problem in opening the file*/
+       
     {
-        printf("Destination file %d cannot be opened.\n", dest_file);
+         printf("Destination file %d cannot be opened.\n", dest_file);
         return 0;
     }
 
     stack s;
     init(&s, SIZE);
 
-    char buff;
-    buff = fgetc(fps);
+    char buff;          /*A buff variable is to store characters of the text file*/
+   
+    buff = fgetc(fps);  /*fgetc is used to take the character from text file and it automatically moves to the next character of
+                          text file*/
 
-    while(!feof(fps))
+    while(!feof(fps))  /*we will iterate through the loop until the end of file*/
+       
     {
-        push(&s, buff);
-        buff = fgetc(fps);
+        push(&s, buff); /*and will push the characters into the stack*/
+        buff = fgetc(fps); /*and move to the next character*/
     }
 
-    while(!isUnderflow(&s))
+    while(!isUnderflow(&s)) 
+       
     {
-       fputc(pop(&s), fpd);
+       fputc(pop(&s), fpd); /*we will pop out all characters from the stack after pushing all characters into stack until the
+                              stack will underflow*/ 
 
     }
 
-    fclose(fps);
+    fclose(fps);            /*closing the files*/
     fclose(fpd);
-    deallocate(&s);
+    deallocate(&s);         /*deallocating memory*/
     return 1;
 
 
@@ -146,10 +184,16 @@ int main()
 {
    int f;
 
-   f = reverse("ds_tannu.txt", "reverse_ds_tannu.txt");
+   f = reverse("ds_tannu.txt", "reverse_ds_tannu.txt"); /*passing the name of the file into the function and also remember that
+                                                          your text file should be saved in the same folder in which your code is saved*/
+   
+   /*This f will return either 1 or 0 if it will return 1 then file will be copied succcessfully */
+   
    if(f)
+      
       printf("File copied successfully.\n");
    else
+      
     printf("Error in copying file.\n");
 
    return 0;
