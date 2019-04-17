@@ -6,13 +6,14 @@ and we will print them in another file, this needs the basic knowledge of file h
 /*I have created one file named text_file.txt and have written some content in it and created an empty fle called rev_text_file.txt in 
 which the reversed content will be saved*/
 
-/*note: Your text file should be saved in the same folder in which you are going to save your c code*/
+/*note: Your text file should be saved in the same folder in which you are going to save your .c file*/
 
 
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
 
+/* Structure for stack*/
 
 typedef struct
 {
@@ -49,13 +50,13 @@ int isUnderflow(stack *sp)
 }
 
 
-void push(stack *sp, char value)   /*For pushing an element into a stack*/
+void push(stack *sp, char value)   /*For pushing an element into the stack*/
 {
     if(isOverflow(sp))
     {
        char * temp;
        int i;
-       temp = (char *)malloc(sizeof(char) * sp->size * 2);
+       temp = (char *)malloc(sizeof(char) * sp->size * 2);  /* Size of the stack will be doubled when overflow will happen*/
 
        if(temp == NULL)
        {
@@ -63,14 +64,14 @@ void push(stack *sp, char value)   /*For pushing an element into a stack*/
            return;
        }
 
-       for(i=0; i<=sp->top; i++)
+       for(i=0; i<=sp->top; i++)  
        {
-           temp[i] = sp->item[i];
+           temp[i] = sp->item[i];    /*Assigning each element of item into temp array*/
        }
 
-       free (sp->item);
-       sp->item = temp;
-       sp->size *= 2;
+       free (sp->item);    /*Deallocating the space of item*/    
+       sp->item = temp;    /*assigning the address of temp into item*/
+       sp->size *= 2;      /*Doubling the size of the stack*/
     }
     sp->top++;
     sp->item[sp->top] = value;
