@@ -22,13 +22,16 @@ char pop ();
 int isEmpty();
 int prcd(char, char);
 void convert(char[], char[]);
-
+    
+/*Constructor for initialization*/
+    
 operatorStack ()
-{
+ {
     top = -1;
-}
+ }
 
 };
+
 /*Function definition*/
 
 void operatorStack :: push(char value)
