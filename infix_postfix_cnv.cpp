@@ -35,7 +35,7 @@ void operatorStack :: push(char value)
 {
     if (top == SIZE -1)
     {
-        printf("Stack overflow\n");
+        cout<<"Stack overflow"<<endl;
         return;
     }
     else
@@ -49,7 +49,7 @@ char operatorStack :: pop()
 {
     if(isEmpty())
     {
-        printf("Stack underflow\n");
+        cout<<"Stack underflow"<<endl;
         return 9;
     }
 
@@ -158,7 +158,7 @@ void operatorStack :: convert(char infix[], char postfix[])
 
        else
        {
-        printf("Invalid symbol %c encountered\n", token);
+        cout<<"Invalid symbol "<<token<<" encountered "<<endl;
         exit(1);
        }
 
@@ -184,11 +184,11 @@ int main()
     char infix[SIZE];
     char postfix[SIZE];
 
-    printf("Enter an infix string : ");
-    scanf("%s", &infix);
+    cout<<"Enter an infix string : "<<endl;
+    cin>>infix;
 
     s1.convert(infix, postfix);
-    printf("\nThe converted postfix string is %s\n", postfix);
+    cout<<"The converted postfix string is"<<postfix;
     return 0;
 }
 
