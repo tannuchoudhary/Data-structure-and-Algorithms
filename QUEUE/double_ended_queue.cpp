@@ -1,8 +1,8 @@
 //This is the operation for double ended queue in which we can do the following operations :
 //1. Insertion at rear.
-//2. Deletion at rear.
+//2. Deletion from rear.
 //3. Insertion at front.
-//4. Deletion at front
+//4. Deletion from front
 
 //i.e we can do insertion and deletion from both sides unlike normal queue or circular queue
 
