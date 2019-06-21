@@ -443,8 +443,9 @@ int main()
                  exit(0);
                  break;
 
-        deafult :
+        default :
                    printf("Invalid choice\n");
+                   exit(0);
 
 
 
