@@ -2,12 +2,16 @@
 #include<stdlib.h>
 #include<time.h>
 
+// A structure for the node of the linked list
+
 typedef struct Node
 {
     int data;
     struct Node * next;
 
 }Node;
+
+//A structure for the linked list
 
 typedef struct
 {
@@ -16,7 +20,9 @@ typedef struct
     int nodeCount;
 }linkedList;
 
+
 //Function prototype
+
 void menu();
 void init(linkedList *);
 int loadFromFile(linkedList *, char *);
@@ -49,12 +55,16 @@ void menu()
     printf("12. Quit\n");
 }
 
+// for initialisation
+
 void init(linkedList * lstPtr)
 {
     lstPtr->head = NULL;
     lstPtr->tail = NULL;
     lstPtr->nodeCount = 0;
 }
+
+// For creating a list of random numbers
 
 void createRandomList(linkedList *lstPtr, int num)
 {
@@ -67,6 +77,8 @@ void createRandomList(linkedList *lstPtr, int num)
     }
 
 }
+
+//To insert an element at tail position
 
 void insertAtTail(linkedList *lstPtr, int data)
 {
@@ -93,6 +105,7 @@ void insertAtTail(linkedList *lstPtr, int data)
     lstPtr->nodeCount++;
 }
 
+//To insert an element at head position
 
 void insertAtHead(linkedList * lstPtr, int data)
 {
@@ -120,6 +133,8 @@ void insertAtHead(linkedList * lstPtr, int data)
 
 }
 
+//Printing the data of the numbers in the linked list
+
 void printListData(linkedList * lstPtr)
 {
 
@@ -139,6 +154,9 @@ void printListData(linkedList * lstPtr)
         }
     }
 }
+
+
+//Printing the details of the all numbers present in the linked list
 
 void printListDetails(linkedList * lstPtr)
 {
