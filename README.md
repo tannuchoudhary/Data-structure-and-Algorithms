@@ -1,1 +1,2 @@
-# This dataStructures file contains some simple algorithms and codes of data strucures.
+# This dataStructures file contains all the implementations of basic data structures and codes of basic algorithms.
+
