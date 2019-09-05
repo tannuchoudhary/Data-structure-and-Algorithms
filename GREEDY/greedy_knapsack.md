@@ -31,7 +31,7 @@ step 3- fill the knapsack
   
   here greater() function does a comparison in a way that puts greater element before.
   
-  In place of greater function, we can use this-
+  
   
   
 
