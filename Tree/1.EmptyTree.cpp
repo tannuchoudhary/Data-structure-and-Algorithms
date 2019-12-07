@@ -11,7 +11,7 @@ struct treeNode{
   treeNode *left;  
 }
 int main(){
-  /*For creating a tree you need a root pointer just like head poimter in linked list*/
+  /*For creating a tree you need a root pointer just like head pointer in linked list*/
   
   /*Initially your tree is empty so  root pointer will not contain any address i.e it will contain NULL*/
   
