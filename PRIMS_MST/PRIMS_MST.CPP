@@ -61,7 +61,7 @@ void prims(int graph[V][V]){
   key[0] = 0;//take the first node and its wight will be 0
   parent[0] = -1;//as it is a root so parent is -1
 
-  for(int i=0; i<V; i++){
+  for(int i=0; i<V-1; i++){
 
     int u = minkey(key, mstset);//find minimum weight among all which is not visited
     mstset[u] = true;//mark it visited
